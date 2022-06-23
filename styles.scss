@@ -1,16 +1,23 @@
 /* CSS files add styling rules to your content */
-
 body {
-    font-family: helvetica, arial, sans-serif;
-    margin: 2em;
-  }
-  
-  h1 {
-    font-style: italic;
-    color: #373fff;
-  }
+    overflow: hidden !important;
+}
 
-  .content img {
-    image-rendering: pixelated !important;
-    filter: grayscale(100%);
-  }
+h1{
+    text-align: center;
+    font: bold;
+}
+
+h5 {
+    text-align: center;
+    font: bold;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 100px;
+
+}

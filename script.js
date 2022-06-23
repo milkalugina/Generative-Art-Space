@@ -1,25 +1,65 @@
-let searchButton = document.querySelector("#search")
+// Go to https://api.nasa.gov/index.html#apply-for-an-api-key to get an API Key
 
-//Add an event listener to the button that runs the function sendApiRequest when it is clicked
-searchButton.addEventListener("click", ()=>{
-  console.log("button pressed")
-  sendApiRequest()
+var apodContain = document.getElementById('apod');
+var API_KEY = 'SiecJPnwCtVpotFeFqrT767GG3GzfAdgro3pCufg';
+
+var datePick = document.getElementById('date');
+datePick.max = todaysDate();
+datePick.value = todaysDate();
+var date = datePick.value;
+
+var url = 'https://api.nasa.gov/planetary/apod?api_key=' + API_KEY + '&date=' + date;
+
+
+async function makeApiRequest(url) {
+    var myRequest = new XMLHttpRequest();
+    myRequest.onreadystatechange = function () {
+        if (myRequest.readyState === XMLHttpRequest.DONE) {
+            if (myRequest.status === 200) {
+                var responseText = myRequest.responseText;
+                myRequest.onload = function () {
+                    var responseJson = JSON.parse(responseText);
+                    console.log(responseJson);
+                    renderHTML(responseJson);
+
+                }
+            } else {
+                var errorMessage = document.getElementById('error');
+                errorMessage.innerHTML = "This date this not work";
+
+            }
+        }
+    }
+
+    // intializes AJAX
+    myRequest.open('GET', url, true);
+    myRequest.send();
+};
+
+makeApiRequest(url);
+
+datePick.addEventListener('change', function(e){
+
+        date = datePick.value;
+        url = 'https://api.nasa.gov/planetary/apod?api_key=' + API_KEY + '&date=' + date;
+        makeApiRequest(url);
+
 })
 
+function todaysDate() {
+    var now = new Date();
 
-//An asynchronous function to fetch data from the API.
-async function sendApiRequest(){
-    let API_KEY = "SiecJPnwCtVpotFeFqrT767GG3GzfAdgro3pCufg";
-    let response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`);
-    console.log(response)
-    let data = await response.json()
-    console.log(data);
-    useApiData(data)
+    var year = now.getFullYear();
+    var month = now.getMonth() + 1;
+    var day = now.getDate();
+
+    return year + '-' + month + '-' + day;
+    datePick.setAttribute("max", datePick.max);
 }
 
+function renderHTML(data) {
+    var htmlString = "";
 
-//function that does something with the data received from the API. The name of the function should be customized to whatever you are doing with the data
-function useApiData(data){
-  document.querySelector('#content').innerHTML += data.explanation
-  document.querySelector('#content').innerHTML += `<img src="${data.url}">`
+    htmlString = "<img src = " + data.url + "></img>" + "<h1>" + data.title + "</h1>" + "<p>" + data.explanation + "</p>";
+    apodContain.innerHTML = htmlString;
 }
