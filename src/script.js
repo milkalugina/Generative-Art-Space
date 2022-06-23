@@ -1,4 +1,3 @@
-// Go to https://api.nasa.gov/index.html#apply-for-an-api-key to get an API Key
 
 var apodContain = document.getElementById('apod');
 var API_KEY = 'SiecJPnwCtVpotFeFqrT767GG3GzfAdgro3pCufg';
@@ -21,17 +20,14 @@ async function makeApiRequest(url) {
                     var responseJson = JSON.parse(responseText);
                     console.log(responseJson);
                     renderHTML(responseJson);
-
                 }
             } else {
                 var errorMessage = document.getElementById('error');
                 errorMessage.innerHTML = "This date this not work";
-
             }
         }
     }
 
-    // intializes AJAX
     myRequest.open('GET', url, true);
     myRequest.send();
 };
@@ -60,6 +56,7 @@ function todaysDate() {
 function renderHTML(data) {
     var htmlString = "";
 
-    htmlString = "<img src = " + data.url + "></img>" + "<h1>" + data.title + "</h1>" + "<p>" + data.explanation + "</p>";
+    htmlString = "<div class = 'image' >" + "<img src = " + data.url + "></img>" + "</div>" + "<div class = 'text' >" + "<h1>" + data.title + "</h1>" + "<p>" + data.explanation + "</p>" + "</div>";
     apodContain.innerHTML = htmlString;
 }
+
