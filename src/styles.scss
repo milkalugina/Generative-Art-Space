@@ -6,23 +6,22 @@
 
 @font-face {
     font-family: "Berlin Type";
-    src: url("BerlinType-Bold.ttf");
+    src: url("src/fonts/BerlinType-Bold.ttf");
     font-weight: 700;
-}
+    }
 
- @font-face {
+    @font-face {
     font-family: "Antonym";
     src: url("Antonym-Regular.ttf");
     font-weight: 400;
-}
+    }
 
-@font-face {
+    @font-face {
     font-family: "Antonym";
-    src: url("Antonym-Regular-Italic.ttf");
+    src: url("fonts/Antonym-Regular-Italic.ttf");
     font-weight: 400;
     font-style: italic;
-}
-
+    }
 
 body {
     display: flex;
