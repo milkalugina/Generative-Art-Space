@@ -4,6 +4,25 @@
 @import 'stylesheets/basics.scss';
 @import 'stylesheets/main.scss';
 
+@font-face {
+    font-family: "Berlin Type";
+    src: url("BerlinType-Bold.ttf");
+    font-weight: 700;
+}
+
+ @font-face {
+    font-family: "Antonym";
+    src: url("Antonym-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Antonym";
+    src: url("Antonym-Regular-Italic.ttf");
+    font-weight: 400;
+    font-style: italic;
+}
+
 
 body {
     display: flex;
