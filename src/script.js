@@ -23,7 +23,7 @@ async function makeApiRequest(url) {
                 }
             } else {
                 var errorMessage = document.getElementById('error');
-                errorMessage.innerHTML = "This date this not work";
+                errorMessage.innerHTML = "К сожалению, эта дата оказалась пуста";
             }
         }
     }
@@ -56,7 +56,7 @@ function todaysDate() {
 function renderHTML(data) {
     var htmlString = "";
 
-    htmlString = "<div class = 'image' >" + "<img src = " + data.url + "></img>" + "</div>" + "<div class = 'text' >" + "<h1>" + data.title + "</h1>" + "<p>" + data.explanation + "</p>" + "</div>";
+    htmlString =  "<div class = 'image' >" + "<img src = " + data.url + "></img>" + "</div>" + "<div class = 'text' >"  + "<hr>"  + "<h1>" + data.title + "</h1>"  + "<hr>" + "<p>" + data.explanation + "</p>"  + "<hr>"  + "</div>";
     apodContain.innerHTML = htmlString;
 }
 

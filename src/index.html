@@ -4,83 +4,213 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NASA TIME OBSERVATORY</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" type="text/css" />
+    <link href="src/stylesheets/reset.scss" rel="stylesheet" type="text/scss" />
     <link href="src/styles.scss" rel="stylesheet" type="text/scss" />
 </head>
+
 <style>
+
+    @font-face {
+    font-family: "Berlin Type";
+    src: url("BerlinType-Bold.ttf");
+    font-weight: 700;
+    }
+
+    @font-face {
+    font-family: "Berlin Type";
+    src: url("Antonym-Regular.ttf");
+    font-weight: 400;
+    }
+
+    @font-face {
+    font-family: "Berlin Type";
+    src: url("Antonym-Regular-Italic.ttf");
+    font-weight: 400;
+    font-style: italic;
+    }
+
     html {
-        position: absolute;
-        height: 0px;
-        width: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
     overflow-x: hidden !important;
     overflow-y: hidden !important;
-}
+    }
 
-div {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0px;
+        height: 100vh;
+    }
 
-}
+    #adop {
+        z-index: -5 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+    }
+
+    hr {
+        margin: 0;
+        width: 100vw;
+        border: 1px solid #222224;
+    }
+
+    .image {
+        height: 30vw;
+        z-index: -5 !important;
+        overflow: hidden;
+        image-rendering: pixelated;
+    }
+
     img {
-    z-index: 1;
-    position: absolute;
-    width: 100vw;
-    image-rendering: pixelated;
-    filter: invert(1) grayscale(1) blur(10px);
-}
+        z-index: -5 !important;
+        width: 100vw;
+        filter: invert(1) grayscale(1);
+    }
 
-h1 {
-    z-index: 200;
-    position: relative;
-    width: 70vw;
-    justify-content: center;
-    align-self: flex-end;
-}
+    .text {
+        z-index: 200 !important;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        background: #F7F7F7 !important;
+    }
 
-p {
-    z-index: 200;
-    position: relative;
-    width: 70vw;
-    justify-content: center;
-    align-self: flex-end;
-}
+    .text h1 {
+        z-index: 200;
+        font-family: 'Berlin Type';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 93.3333px;
+        line-height: 100%;
+        padding: 0px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #222224;
+    }
 
-h5 {
-    z-index: 200;
-    position: relative;
-    display: flex;
-    width: 70vw;
-    flex-direction: column;
+    .text p {
+        z-index: 200;
+        justify-content: center;
+        align-items: center;
+        margin: 50px;
+        font-family: 'Antonym';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 111%;
+        color: #222224;
+    }
 
-}
+    .choose {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        background: #222224;
+    }
 
-input {
-    z-index: 200;
-    position: relative;
-    display: flex;
-    width: 70vw;
+    .choose div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px 50px;
+        width: 60vw;
+        background: #FCFBE7;
+    }
 
-}
+    .choose h5 {
+        z-index: 200;
+        position: relative;
+        display: flex;
+        width: 70vw;
+        flex-direction: column;
 
-::-webkit-datetime-edit { padding: 1em; }
-::-webkit-datetime-edit-fields-wrapper { background: silver; }
-::-webkit-datetime-edit-text { color: red; padding: 0 0.3em; }
-::-webkit-datetime-edit-month-field { color: blue; }
-::-webkit-datetime-edit-day-field { color: green; }
-::-webkit-datetime-edit-year-field { color: purple; }
-::-webkit-inner-spin-button { display: none; }
-::-webkit-calendar-picker-indicator { background: orange; }
+        font-family: 'Berlin Type';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36.7757px;
+        line-height: 100%;
+        text-transform: uppercase;
+        color: #222224;
+
+    }
+
+    .choose p {
+        font-family: 'Antonym';
+        font-style: italic;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #222224;
+    }
+
+    .choose input {
+        padding: 20px 0px;
+        text-align: center;
+        z-index: 200;
+        font-family: 'Antonym';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 36.78px;
+        line-height: 59px;
+        text-transform: uppercase; 
+        background: #222224;
+        color: #F7F7F7;
+        width: 40vw;
+        border: 0px solid;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 1;
+        display: block;
+        background: url(src/images/datetime.png) no-repeat;
+        width: 20px;
+        height: 20px;
+        border-width: thin;
+    }
+
+    #error {
+        font-family: 'Antonym';
+        font-style: italic;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 25px;
+        color: #222224;
+    }
+
+    input:focus {
+    outline: none;
+    }
 </style>
+
 <body>
 
     <div id="apod"></div>
 
-    <h5>Выбери день на этой планете*
+    <div class="choose">    
+        <div>
+            <h5>Обатрись к календарю космоса*</h5>
+            <p>*С июня 1995 по сегодняшний день (в некоторые даты изображения отсутсвтвуют)</p>
+        </div>
         <input id="date" type="date"></input>
-    </h5>
-    
+    </div>
+
+    <hr>
+
     <div id="error"></div>
 
 
